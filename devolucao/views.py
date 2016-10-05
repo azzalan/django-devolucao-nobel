@@ -16,7 +16,7 @@ class DevolucaoView(FormView):
     def form_valid(self, form):
         self.livro = Livro.objects.all().filter(isbn=form.cleaned_data['isbn'])
         for livro in self.livro:
-            livro.quantidade_atual -= 1
+            livro.quantidade_faltando -= 1
             livro.save()
         return super(DevolucaoView, self).form_valid(form)
 
