@@ -19,6 +19,6 @@ class ISBNForm(forms.Form):
             raise forms.ValidationError("Preencha o isbn antes de enviar.")
         elif not livro:
             raise forms.ValidationError("Não devolver, esse isbn não está na lista.")
-        elif livro[0].quantidade_atual<1:
+        elif livro[0].quantidade_faltando<1:
             raise forms.ValidationError("Não devolver, quantidade de livros devolvidos já atingida.")
         return self.cleaned_data
