@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+          <div class="inner cover">
+            {% for livro in livro %}
+            <p class="lead">{{ livro.titulo }}</p>
+            <p class="lead">Devolvido - faltam {{ livro.quantidade_atual }}</p>
+            {% endfor %}
+            <form method="post" class="col-md-12" enctype="multipart/form-data" action="">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="col-md-offset-4 col-md-4">
+                    <input id="disable_on_click" type="submit" class="btn btn-block enviar" value="Enviar" />
+                </div>
+            </form>
+          </div>
+{% endblock %}
