@@ -5,7 +5,7 @@
           <div class="inner cover">
             {% for livro in livro %}
             <p class="lead">{{ livro.titulo }}</p>
-            <p class="lead">Devolvido - faltam {{ livro.quantidade_atual }}</p>
+            <p class="lead">Devolvido - faltam {{ livro.quantidade_faltando }}</p>
             {% endfor %}
             <form method="post" class="col-md-12" enctype="multipart/form-data" action="">
                 {% csrf_token %}
